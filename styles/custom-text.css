@@ -1,0 +1,116 @@
+/* Custom text classes for better body text */
+
+.body-text {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75; /* leading-relaxed */
+  font-weight: 500; /* font-medium */
+  color: var(--theme-text-secondary);
+}
+
+@media (min-width: 768px) {
+  .body-text {
+    font-size: 1.25rem; /* md:text-xl */
+  }
+}
+
+@media (min-width: 1024px) {
+  .body-text {
+    font-size: 1.5rem; /* lg:text-2xl */
+  }
+}
+
+/* Large emphasized text for special sections */
+.emphasized-text {
+  font-size: 1.5rem; /* text-2xl */
+  line-height: 1.75; /* leading-relaxed */
+  font-weight: 600; /* font-semibold */
+  color: var(--theme-text-primary);
+}
+
+@media (min-width: 768px) {
+  .emphasized-text {
+    font-size: 1.875rem; /* md:text-3xl */
+  }
+}
+
+@media (min-width: 1024px) {
+  .emphasized-text {
+    font-size: 2.25rem; /* lg:text-4xl */
+  }
+}
+
+/* Extra large text for hero statements */
+.hero-statement {
+  font-size: 2rem; /* text-4xl */
+  line-height: 1.25; /* leading-tight */
+  font-weight: 700; /* font-bold */
+}
+
+@media (min-width: 768px) {
+  .hero-statement {
+    font-size: 2.5rem; /* md:text-5xl */
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-statement {
+    font-size: 3rem; /* lg:text-6xl */
+  }
+}
+
+.body-text-sm {
+  font-size: 1rem; /* text-base */
+  line-height: 1.75; /* leading-relaxed */
+  font-weight: 500; /* font-medium */
+  color: var(--theme-text-secondary);
+}
+
+@media (min-width: 768px) {
+  .body-text-sm {
+    font-size: 1.125rem; /* md:text-lg */
+  }
+}
+
+.body-text-large {
+  font-size: 1.25rem; /* text-xl */
+  line-height: 1.75; /* leading-relaxed */
+  font-weight: 500; /* font-medium */
+  color: var(--theme-text-secondary);
+}
+
+@media (min-width: 768px) {
+  .body-text-large {
+    font-size: 1.5rem; /* md:text-2xl */
+  }
+}
+
+@media (min-width: 1024px) {
+  .body-text-large {
+    font-size: 1.875rem; /* lg:text-3xl */
+  }
+}
+
+/* Headline emphasis for second part of headers */
+.headline-emphasis {
+  color: var(--theme-accent);
+  font-style: italic;
+  font-weight: 600; /* font-semibold */
+}
+
+/* Main paragraph styling for landing page */
+.landing-paragraph {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75; /* leading-relaxed */
+  font-weight: 500; /* font-medium */
+  color: var(--theme-text-secondary);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 65ch; /* max-w-prose */
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+@media (min-width: 768px) {
+  .landing-paragraph {
+    font-size: 1.25rem; /* md:text-xl */
+  }
+}
