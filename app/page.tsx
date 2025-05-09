@@ -1,19 +1,48 @@
-import { VSSection, VSBackground } from '../components/ui/vs-background';
-import { VSHeading, VSText } from '../components/ui/vs-text';
-import { VSButton } from '../components/ui/vs-button';
+import { getPosts } from '../sanity/lib/getPosts';
+import { urlFor } from '../sanity/lib/image';
+import { HeroPost } from './_components/hero-post';
+import { MoreStories } from './_components/more-stories';
+import { Intro } from './_components/intro';
+import Container from './_components/container';
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getPosts();
+
+  if (!posts || posts.length === 0) {
+    return <div className="text-center py-12">No posts found.</div>;
+  }
+
+  // Map Sanity data to the expected shape
+  const allPosts = posts.map((post: any) => ({
+    slug: post.slug?.current || '',
+    title: post.title,
+    date: post.publishedAt,
+    coverImage: post.mainImage?.asset?.url ? urlFor(post.mainImage).url() : '',
+    author: {
+      name: post.author?.name || 'Unknown',
+      picture: post.author?.image ? urlFor(post.author.image).url() : '/default-avatar.png',
+    },
+    excerpt: post.excerpt || '',
+    content: post.body || '',
+  }));
+
+  const heroPost = allPosts[0];
+  const morePosts = allPosts.slice(1);
+
   return (
-    <VSSection className="bg-[var(--theme-bg-primary)] min-h-screen flex flex-col items-center justify-center">
-      <VSHeading size="xl" className="gradient-text mb-4 text-center">
-        Welcome to the Clash Blog
-      </VSHeading>
-      <VSText size="lg" className="body-text text-center max-w-2xl mb-8">
-        This blog now uses the full Clash theme system, including gradients, theme-aware backgrounds, and VS components for a seamless brand experience.
-      </VSText>
-      <VSButton variant="primary" size="lg" className="mt-4">
-        Read the Blog
-      </VSButton>
-    </VSSection>
+    <main>
+      <Container>
+        <Intro />
+        <HeroPost
+          title={heroPost.title}
+          coverImage={heroPost.coverImage}
+          date={heroPost.date}
+          author={heroPost.author}
+          slug={heroPost.slug}
+          excerpt={heroPost.excerpt}
+        />
+        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      </Container>
+    </main>
   );
 }
