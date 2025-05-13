@@ -30,7 +30,7 @@ export default function Header() {
                 className="h-10 w-10 rounded-full mr-2"
                 priority
               />
-              <span className="text-[#FF6B49] font-bold text-xl hidden sm:inline">vertical shortcut</span>
+              <span className="text-[#FF6B49] font-bold text-xl hidden sm:inline">the vertical shortcut</span>
             </div>
           </Link>
         </div>

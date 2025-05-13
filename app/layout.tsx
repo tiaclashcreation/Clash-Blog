@@ -22,6 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" type="image/x-icon" href="/clash-logo.ico" />
+      </head>
       <body
         className="min-h-screen bg-theme-primary font-sans antialiased"
       >
