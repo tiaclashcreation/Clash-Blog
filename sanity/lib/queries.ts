@@ -12,7 +12,8 @@ export const postsQuery = `*[_type == "post" && !(_id in path('drafts.**'))] | o
   publishedAt,
   body,
   excerpt,
-  "author": author->{name, image}
+  "author": author->{name, image},
+  "categories": categories[]->title
 }`;
 
 export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0]{

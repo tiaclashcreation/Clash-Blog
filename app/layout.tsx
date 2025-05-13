@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../styles/index.css";
 import { ThemeProvider } from "next-themes";
 import Header from "./_components/header";
+import { getPosts } from "../sanity/lib/getPosts";
 
 /*  
 const inter = Inter({
@@ -15,11 +16,30 @@ export const metadata: Metadata = {
   description: "A modern blog built with Next.js and Sanity",
 };
 
-export default function RootLayout({
+function groupPostsByCategory(posts: any[]) {
+  const grouped: { [category: string]: any[] } = {};
+  posts.forEach(post => {
+    (post.categories || []).forEach((cat: string) => {
+      if (!grouped[cat]) grouped[cat] = [];
+      grouped[cat].push({
+        title: post.title,
+        slug: post.slug.current || post.slug, // handle both cases
+        imageUrl: post.mainImage?.asset?.url || "",
+        categories: post.categories || [],
+      });
+    });
+  });
+  return grouped;
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const posts = await getPosts();
+  const postsByCategory = groupPostsByCategory(posts);
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -34,7 +54,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
+          <Header postsByCategory={postsByCategory} />
           {children}
         </ThemeProvider>
       </body>

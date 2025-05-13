@@ -21,23 +21,21 @@ export function HeroPost({
 }: Props) {
   return (
     <section>
-      <div className="mb-8 md:mb-16 flex justify-center">
-        <CoverImage title={title} src={coverImage} slug={slug} width={500} height={240} />
-      </div>
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
-        <div>
-          <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
-            <a href={`/posts/${slug}`} className="hover:underline">
-              {title}
-            </a>
-          </h3>
-          <div className="flex items-center gap-4 text-lg mb-4">
+      <div className="flex flex-col md:flex-row items-center md:items-start mb-8 md:mb-16 gap-8">
+        <div className="flex-shrink-0">
+          <CoverImage title={title} src={coverImage} slug={slug} width={600} height={290} />
+          <div className="flex items-center gap-2 text-base mt-4">
             <Avatar name={author.name} picture={author.picture} />
             <DateFormatter dateString={date} />
           </div>
         </div>
-        <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+        <div className="flex-1 w-full">
+          <h3 className="mb-2 text-4xl lg:text-5xl leading-tight">
+            <a href={`/posts/${slug}`} className="hover:underline">
+              {title}
+            </a>
+          </h3>
+          <p className="text-lg leading-relaxed mb-2">{excerpt}</p>
         </div>
       </div>
     </section>

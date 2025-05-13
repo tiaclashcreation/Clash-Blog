@@ -10,12 +10,12 @@ type Props = {
   height?: number;
 };
 
-const CoverImage = ({ title, src, slug, width = 1300, height = 630 }: Props) => {
+const CoverImage = ({ title, src, slug, width = 700, height = 340 }: Props) => {
   const image = (
     <Image
       src={src}
       alt={`Cover Image for ${title}`}
-      className={cn("shadow-sm", {
+      className={cn("shadow-sm mx-auto", {
         "hover:shadow-lg transition-shadow duration-200": slug,
       })}
       width={width}
@@ -23,7 +23,7 @@ const CoverImage = ({ title, src, slug, width = 1300, height = 630 }: Props) => 
     />
   );
   return (
-    <div className="sm:mx-0">
+    <div className="sm:mx-0 flex justify-center">
       {slug ? (
         <Link href={`/posts/${slug}`} aria-label={title}>
           {image}

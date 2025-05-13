@@ -30,11 +30,9 @@ export function PostPreview({
           {title}
         </Link>
       </h3>
-      <div className="flex items-center gap-4 text-lg mb-4">
-        <Avatar name={author.name} picture={author.picture} />
-        <DateFormatter dateString={date} />
-      </div>
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+      <div className="flex items-center gap-2 text-base mb-1">
+      </div>
     </div>
   );
 } 

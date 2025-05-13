@@ -40,7 +40,7 @@ export default async function PostPage({ params }: PageProps) {
             author={mappedPost.author}
           />
           {/* If you have markdown, convert to HTML and use PostBody. Otherwise, use PortableText. */}
-          <div className="prose prose-invert max-w-4xl px-4 mx-auto">
+          <div className="prose prose-invert max-w-[700px] mx-auto !px-0">
             <PortableText value={mappedPost.content} />
           </div>
         </article>

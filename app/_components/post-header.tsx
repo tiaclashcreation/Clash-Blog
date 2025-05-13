@@ -14,9 +14,11 @@ export function PostHeader({ title, coverImage, date, author }: Props) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
-      <div className="flex items-center gap-3 mb-4 text-lg">
-        <Avatar name={author.name} picture={author.picture} />
-        <DateFormatter dateString={date} />
+      <div className="max-w-[700px] mx-auto">
+        <div className="flex items-center gap-3 mb-4 text-lg">
+          <Avatar name={author.name} picture={author.picture} />
+          <DateFormatter dateString={date} />
+        </div>
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0">
         <CoverImage title={title} src={coverImage} />

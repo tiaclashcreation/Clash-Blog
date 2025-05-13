@@ -37,14 +37,14 @@
   --bg-navy-darker-rgb: 8, 29, 39;
   
   /* Primary palette */
-  --primary-orange: oklch(0.766 0.171 61.118);
-  --primary-orange-rgb: 255, 159, 81;
-  --primary-orange-hover: oklch(0.76 0.1929 53.91);
-  --primary-orange-hover-rgb: 255, 136, 1;
-  --primary-orange-light: oklch(0.84 0.1312 60);
-  --primary-orange-light-rgb: 255, 183, 111;
-  --primary-orange-darkmode: oklch(0.82 0.1475 54.41);
-  --primary-orange-darkmode-rgb: 255, 168, 98;
+  --primary-blue: oklch(0.55 0.107 230.285);
+  --primary-blue-rgb: 25, 115, 148;
+  --primary-blue-hover: oklch(0.66 0.125 228.066);
+  --primary-blue-hover-rgb: 8, 137, 179;
+  --primary-blue-light: oklch(0.757 0.122 230.373);
+  --primary-blue-light-rgb: 94, 159, 188;
+  --primary-blue-darkmode: oklch(0.333 0.072 236.165);
+  --primary-blue-darkmode-rgb: 0, 80, 116;
   
   /* Secondary palette */
   --secondary-teal: oklch(0.513 0.086 208.747);
@@ -185,8 +185,8 @@
   --theme-gradient-end: var(--bg-cream) !important;
   --theme-gradient-card-start: var(--text-cream);
   --theme-gradient-card-end: var(--bg-cream);
-  --theme-primary-gradient-start: var(--primary-orange);
-  --theme-primary-gradient-end: var(--primary-orange-hover);
+  --theme-primary-gradient-start: var(--primary-blue);
+  --theme-primary-gradient-end: var(--primary-blue-hover);
   --theme-secondary-gradient-start: var(--secondary-teal);
   --theme-secondary-gradient-end: var(--secondary-teal-hover);
   --theme-accent-gradient-start: var(--accent-coral);
@@ -200,15 +200,15 @@
   --hud-navy: var(--secondary-blue); /* #122E3B */
   --hud-red: var(--accent-red); /* #B92234 */
   --hud-pink: var(--accent-pink); /* #FA91A6 */
-  --hud-orange: var(--primary-orange); /* #FEA35D */
+  --hud-orange: var(--primary-blue); /* #FEA35D */
   --hud-accent-red: var(--accent-red-dark); /* #FF3C54 */
   --hud-orange-light: var(--accent-yellow); /* #FFD5B5 */
   --hud-orange-lighter: var(--accent-peach-light); /* #FFD79B */
 
   /* Theme accent colors */
-  --theme-primary: var(--primary-orange);
-  --theme-primary-hover: var(--primary-orange-hover);
-  --theme-primary-light: var(--primary-orange-light);
+  --theme-primary: var(--primary-blue);
+  --theme-primary-hover: var(--primary-blue-hover);
+  --theme-primary-light: var(--primary-blue-light);
   --theme-accent-secondary: var(--secondary-teal);
   --theme-accent-secondary-hover: var(--secondary-teal-hover);
   --theme-accent-secondary-light: var(--secondary-teal-light);
@@ -217,9 +217,9 @@
   --theme-accent: var(--theme-accent-secondary);
   --theme-accent-coral: var(--accent-coral);
   --theme-accent-red: var(--accent-red);
-  --theme-color-desktop: var(--primary-orange);
+  --theme-color-desktop: var(--primary-blue);
   --theme-color-mobile: var(--secondary-teal);
-  --theme-color-views: var(--primary-orange);
+  --theme-color-views: var(--primary-blue);
   --theme-color-followers: var(--hud-teal);
   --theme-color-engagement: var(--accent-red);
   --theme-color-revenue: var(--secondary-teal);
@@ -242,15 +242,15 @@
   /* Theme floating elements */
   --theme-float-opacity: 0.15;
   --theme-float-opacity-secondary: 0.2;
-  --theme-float-bg-primary: var(--primary-orange);
-  --theme-float-bg-secondary: var(--primary-orange-hover);
+  --theme-float-bg-primary: var(--primary-blue);
+  --theme-float-bg-secondary: var(--primary-blue-hover);
   
   /* Team section variables */
   --theme-team-joden: linear-gradient(to bottom, var(--bg-cream), var(--bg-cream-darker));
   --theme-team-alex: linear-gradient(to bottom, var(--bg-cream-darker), var(--bg-cream));
   --theme-team-tia: linear-gradient(to bottom, var(--bg-cream), var(--secondary-teal-light)/10);
   --theme-team-aydan: linear-gradient(to bottom, var(--secondary-teal-light)/10, var(--bg-cream));
-  --theme-team-joden-accent: var(--primary-orange);
+  --theme-team-joden-accent: var(--primary-blue);
   --theme-team-alex-accent: var(--secondary-teal);
   --theme-team-tia-accent: var(--accent-coral);
   --theme-team-aydan-accent: var(--accent-red);
@@ -273,7 +273,7 @@
   --theme-border: rgba(0, 0, 0, 0.1) !important;
   --theme-border-light: rgba(0, 0, 0, 0.05);
   --theme-border-medium: rgba(0, 0, 0, 0.1);
-  --theme-border-primary: rgba(var(--primary-orange-rgb), 0.2);
+  --theme-border-primary: rgba(var(--primary-blue-rgb), 0.2);
   
   /* Theme border radius */
   --theme-border-radius-md: var(--border-radius-md);
@@ -294,7 +294,7 @@
   --theme-card-bg-navy: var(--card-bg-navy);
   
   /* Pattern variables */
-  --theme-pattern-color: var(--primary-orange);
+  --theme-pattern-color: var(--primary-blue);
   --theme-pattern-opacity: 0.05;
   
   /* Eyeball component variables */

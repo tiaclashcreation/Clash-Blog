@@ -3,27 +3,105 @@
  * Imported from main site for full theme consistency
  */
 
-@layer base {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-    --primary: #0070f3;
-    --primary-foreground: #ffffff;
-  }
-
-  .dark {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --primary: #0070f3;
-    --primary-foreground: #ffffff;
-  }
+/* === GLOBAL BASE STYLES === */
+html {
+  font-family: 'Neue Haas Grotesk Display Pro', sans-serif !important;
+  background-color: var(--theme-bg-primary) !important;
+  scroll-behavior: smooth !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
 }
 
-@layer base {
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: 'Neue Haas Grotesk Display Pro', sans-serif !important;
+  background: linear-gradient(to bottom right, var(--theme-gradient-start), var(--theme-gradient-end)) !important;
+  color: var(--theme-text-primary) !important;
+  min-height: 100vh !important;
+  line-height: 1.5 !important;
+}
+
+/* === HEADINGS === */
+h1 {
+  font-size: 4.5rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.02em !important;
+}
+h2 {
+  font-size: 3.5rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+}
+h3 {
+  font-size: 2.5rem !important;
+  font-weight: 500 !important;
+}
+h4 {
+  font-size: 1.8rem !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+}
+h5 {
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+}
+h6 {
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+}
+
+/* === PARAGRAPHS === */
+p {
+  margin: 0 0 0.5rem !important;
+  font-size: 1rem !important;
+  font-weight: 450 !important;
+  color: var(--theme-text-primary) !important;
+  line-height: inherit !important; /* inherits 1.5 from body */
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 1024px) {
+  h1 { font-size: 4.5rem !important; }
+  h2 { font-size: 3.5rem !important; }
+  h3 { font-size: 2.5rem !important; }
+  h4 { font-size: 1.8rem !important; }
+  h5 { font-size: 1.4rem !important; }
+  h6 { font-size: 1.15rem !important; }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 3.5rem !important; line-height: 1.1 !important; }
+  h2 { font-size: 2.8rem !important; }
+  h3 { font-size: 2.2rem !important; }
+  h4 { font-size: 1.7rem !important; }
+  h5 { font-size: 1.3rem !important; }
+  h6 { font-size: 1.1rem !important; }
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: 2.8rem !important; line-height: 1.1 !important; }
+  h2 { font-size: 2.2rem !important; }
+  h3 { font-size: 1.8rem !important; }
+  h4 { font-size: 1.5rem !important; }
+  h5 { font-size: 1.2rem !important; }
+  h6 { font-size: 1.05rem !important; }
+}
+
+/* === THEME-AWARE COLORS (ensure these CSS variables are set in your theme) === */
+:root {
+  --theme-bg-primary: #fff6ef;
+  --theme-gradient-start: #fff5e8;
+  --theme-gradient-end: #fff6ef;
+  --theme-text-primary: #042f3c;
+}
+
+[data-theme="dark"] {
+  --theme-bg-primary: #09232f;
+  --theme-gradient-start: #0a2837;
+  --theme-gradient-end: #051923;
+  --theme-text-primary: #fff5e9;
 }
 
 /* Custom animations */
@@ -31,11 +109,31 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
   }
 }
 
-/* Import your custom styles */
+/* Force .prose to have no side padding and exactly 700px width */
+.prose,
+.prose * {
+  box-sizing: border-box;
+}
+.prose {
+  max-width: 700px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Aggressive override for all prose containers, regardless of injected utility classes */
+div[class*="prose"] {
+  max-width: 700px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box;
+}
