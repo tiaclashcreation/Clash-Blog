@@ -31,8 +31,8 @@ export default async function Home() {
 
   return (
     <main>
+      <Intro />
       <Container>
-        <Intro />
         <HeroPost
           title={heroPost.title}
           coverImage={heroPost.coverImage}

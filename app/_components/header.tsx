@@ -12,8 +12,22 @@ export default function Header() {
 
   return (
     <>
-      <header className="w-full py-4 px-4 absolute top-0 right-0 z-10 transition-colors bg-theme-primary">
-        <div className="container mx-auto flex items-center justify-end pr-4 gap-4">
+      <header className="w-full py-4 px-4 fixed top-0 right-0 z-20 transition-colors bg-theme-primary shadow-md">
+        <div className="container mx-auto flex items-center justify-between pr-4 gap-4">
+          {/* Clash Blog stacked title */}
+          <Link href="/" className="flex flex-col items-start justify-center select-none" style={{ minWidth: '80px' }}>
+            <span className="text-navy text-2xl md:text-3xl font-bold leading-none tracking-tighter">Clash</span>
+            <span className="text-navy text-2xl md:text-3xl font-bold leading-none tracking-tighter">Blog.</span>
+          </Link>
+          {/* Navbar links */}
+          <nav className="flex-1 flex justify-center">
+            <ul className="flex gap-6 md:gap-10 text-lg md:text-xl font-semibold">
+              <li><Link href="/category/ai" className="hover:text-primary transition-colors">AI</Link></li>
+              <li><Link href="/category/trends" className="hover:text-primary transition-colors">Trends</Link></li>
+              <li><Link href="/category/founders" className="hover:text-primary transition-colors">Founders</Link></li>
+              <li><Link href="/category/psychology" className="hover:text-primary transition-colors">Psychology</Link></li>
+            </ul>
+          </nav>
           {/* Vertical Shortcut button */}
           <Link 
             href="https://www.verticalshortcut.com/" 
