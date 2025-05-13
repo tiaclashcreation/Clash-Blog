@@ -11,6 +11,7 @@ export const postsQuery = `*[_type == "post" && !(_id in path('drafts.**'))] | o
   },
   publishedAt,
   body,
+  excerpt,
   "author": author->{name, image}
 }`;
 
