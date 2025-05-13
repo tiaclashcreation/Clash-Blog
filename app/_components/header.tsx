@@ -19,6 +19,8 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => setMounted(true), []);
@@ -33,6 +35,15 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
 
   const categories = ["AI", "Trends", "Founders", "Psychology"];
 
+  // Side drawer close on route change or escape
+  useEffect(() => {
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setDrawerOpen(false);
+    }
+    if (drawerOpen) document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [drawerOpen]);
+
   return (
     <>
       <header ref={ref} className="w-full py-4 px-4 fixed top-0 right-0 z-20 transition-colors bg-theme-primary shadow-md">
@@ -42,8 +53,8 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
             <span className="text-navy text-2xl md:text-3xl font-bold leading-none tracking-tighter">Clash</span>
             <span className="text-navy text-2xl md:text-3xl font-bold leading-none tracking-tighter">Blog.</span>
           </Link>
-          {/* Navbar links with dropdowns */}
-          <nav className="flex-1 flex justify-center">
+          {/* Desktop Navbar links with dropdowns */}
+          <nav className="flex-1 flex justify-center hidden md:flex">
             <ul className="flex gap-6 md:gap-10 text-lg md:text-xl font-semibold">
               {categories.map((cat) => (
                 <li key={cat} className="relative">
@@ -86,12 +97,12 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
               ))}
             </ul>
           </nav>
-          {/* Vertical Shortcut button */}
+          {/* Desktop Vertical Shortcut button */}
           <Link 
             href="https://www.verticalshortcut.com/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="transition-transform hover:scale-105"
+            className="transition-transform hover:scale-105 hidden md:flex"
           >
             <div className="flex items-center">
               <Image 
@@ -105,8 +116,90 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
               <span className="text-[#FF6B49] font-bold text-xl hidden sm:inline">the vertical shortcut</span>
             </div>
           </Link>
+          {/* Hamburger menu for mobile */}
+          <button
+            className="md:hidden flex items-center justify-center p-2 rounded focus:outline-none"
+            aria-label="Open menu"
+            onClick={() => setDrawerOpen(true)}
+          >
+            <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+          </button>
         </div>
       </header>
+      {/* Side drawer for mobile nav */}
+      {drawerOpen && (
+        <div className="fixed inset-0 z-40 bg-black bg-opacity-40 flex md:hidden">
+          <div className="ml-auto w-4/5 max-w-xs h-full bg-theme-primary shadow-lg flex flex-col relative animate-slide-in">
+            {/* Close button */}
+            <button
+              className="absolute top-4 right-4 p-2 rounded focus:outline-none"
+              aria-label="Close menu"
+              onClick={() => setDrawerOpen(false)}
+            >
+              <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" /></svg>
+            </button>
+            {/* Clash logo at top */}
+            <Link
+              href="https://www.verticalshortcut.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center mt-8 mb-6"
+              onClick={() => setDrawerOpen(false)}
+            >
+              <Image
+                src="/clash-logo.png"
+                alt="vertical shortcut icon"
+                width={48}
+                height={48}
+                className="h-12 w-12 rounded-full"
+                priority
+              />
+            </Link>
+            {/* Category accordions */}
+            <nav className="flex-1 overflow-y-auto px-4">
+              {categories.map((cat) => (
+                <div key={cat} className="mb-2">
+                  <button
+                    className="w-full flex justify-between items-center py-3 px-2 font-semibold text-lg border-b border-theme-border focus:outline-none"
+                    onClick={() => setExpandedCategory(expandedCategory === cat ? null : cat)}
+                    aria-expanded={expandedCategory === cat}
+                  >
+                    <span>{cat}</span>
+                    <svg
+                      className={`transform transition-transform ${expandedCategory === cat ? "rotate-90" : "rotate-0"}`}
+                      width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"
+                    >
+                      <path d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                  {expandedCategory === cat && (
+                    <ul className="pl-2 py-2">
+                      {(postsByCategory[cat] || []).map((post) => (
+                        <li key={post.slug} className="mb-2">
+                          <Link
+                            href={`/posts/${post.slug}`}
+                            className="flex items-center gap-3 px-2 py-2 rounded hover:bg-theme-bg-secondary transition-colors"
+                            onClick={() => setDrawerOpen(false)}
+                          >
+                            <Image
+                              src={post.imageUrl || "/default.jpg"}
+                              alt={post.title}
+                              width={32}
+                              height={32}
+                              className="w-8 h-8 object-cover rounded"
+                            />
+                            <span className="font-medium text-theme-primary text-base">{post.title}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
       {/* Custom floating theme toggle button in bottom right */}
       {mounted && (
         <button
