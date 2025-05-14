@@ -12,8 +12,36 @@ const inter = Inter({
 
  */
 export const metadata: Metadata = {
-  title: "Clash Blog",
-  description: "A modern blog built with Next.js and Sanity",
+  title: "Clash Blog | Short-Form Content Strategy for Founders",
+  description: "Expert insights on creating short-form video content that converts. Psychology-driven approaches, trends, and AI strategies for founders looking to drive real business results.",
+  metadataBase: new URL('https://clash-blog.vercel.app/'),
+  openGraph: {
+    type: 'website',
+    locale: 'en_UK',
+    url: 'https://clash-blog.vercel.app/',
+    siteName: 'Clash Blog',
+    title: 'Clash Blog | Short-Form Content Strategy for Founders',
+    description: 'Expert insights on creating short-form video content that converts. Psychology-driven approaches, trends, and AI strategies for founders looking to drive real business results.',
+    images: [
+      {
+        url: 'https://clash-blog.vercel.app/clash-blog-og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Clash Blog - Short-Form Content for Founders',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Clash Blog | Short-Form Content Strategy for Founders',
+    description: 'Expert insights on creating short-form video content that converts. Psychology-driven approaches, trends, and AI strategies for founders looking to drive real business results.',
+    images: ['https://clash-blog.vercel.app/clash-blog-og.png'],
+  },
+  keywords: 'short-form content, founder marketing, TikTok strategy, content creation, business growth, neuro-writing, AI content strategy, LinkedIn content, Psychology, AI Creative, Script Writing, Short Form, Personal Branding',
+  robots: {
+    index: true,
+    follow: true,
+  }
 };
 
 function groupPostsByCategory(posts: any[]) {
