@@ -74,7 +74,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/x-icon" href="/clash-logo.ico" />
+        <link rel="icon" type="image/x-icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/clash-logo.ico`} />
       </head>
       <body
         className="min-h-screen flex flex-col bg-theme-primary font-sans antialiased dark:bg-[var(--theme-bg-navy-gradient)]"

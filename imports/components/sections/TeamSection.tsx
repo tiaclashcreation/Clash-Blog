@@ -492,19 +492,19 @@ const DesktopTeamParallaxSection = () => {
                   data-direction={img.direction}
                 >
                   <img 
-                    src={img.url || `/assets/main/Meet_The_Team-webp/${member.name.split(' ')[0]}/default.webp`} 
+                    src={img.url || `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/main/Meet_The_Team-webp/${member.name.split(' ')[0]}/default.webp`} 
                     alt={`${member.name} team moment ${imgIndex + 1}`}
                     className="w-full object-contain" // Use object-contain to preserve aspect ratio
                     style={{ maxHeight: `${320 + (img.scale * 80)}px` }} // Control max height for aspect ratio
                     loading="lazy"
                     onError={(e) => {
                       // Fallback if image fails to load
-                      const fallbackImage = `/assets/main/Meet_The_Team-webp/${member.name.split(' ')[0]}/${member.name.split(' ')[0]}-main-full.avif`;
+                      const fallbackImage = `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/main/Meet_The_Team-webp/${member.name.split(' ')[0]}/${member.name.split(' ')[0]}-main-full.avif`;
                       if (e.currentTarget.src !== fallbackImage) {
                         e.currentTarget.src = fallbackImage;
                       } else {
                         // If that fails too, use a default
-                        e.currentTarget.src = "/assets/main/DataBaseThumbs/default.webp";
+                        e.currentTarget.src = `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/main/DataBaseThumbs/default.webp`;
                       }
                     }}
                   />
@@ -534,12 +534,12 @@ const DesktopTeamParallaxSection = () => {
                         data-speed="0.9"
                         onError={(e) => {
                           // Fallback if image fails to load
-                          const fallbackImage = `/assets/main/Meet_The_Team-webp/${member.name.split(' ')[0]}-Halftone.avif`;
+                          const fallbackImage = `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/main/Meet_The_Team-webp/${member.name.split(' ')[0]}-Halftone.avif`;
                           if (e.currentTarget.src !== fallbackImage) {
                             e.currentTarget.src = fallbackImage;
                           } else {
                             // If that fails too, use a default
-                            e.currentTarget.src = "/assets/main/DataBaseThumbs/default.webp";
+                            e.currentTarget.src = `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/main/DataBaseThumbs/default.webp`;
                           }
                         }}
                       />

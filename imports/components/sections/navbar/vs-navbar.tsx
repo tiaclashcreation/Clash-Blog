@@ -239,11 +239,11 @@ export default function VSNavbar({ onApplyClick }: VSNavbarProps) {
           <NavbarComponent className="py-1">
             <NavbarLeft className="gap-1 sm:gap-2">
               <img
-                src={(getClashLogos() as ClashLogos).icon.LogoSm || '/assets/ClashLogo/Logo@1x.webp'}
+                src={(getClashLogos() as ClashLogos).icon.LogoSm || `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/ClashLogo/Logo@1x.webp`}
                 alt="Clash Creation"
                 className="h-10 md:h-15 shadow-theme-logo"
                 onError={(e) => {
-                  e.currentTarget.src = '/assets/ClashLogo/Logo@1x.webp';
+                  e.currentTarget.src = `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/ClashLogo/Logo@1x.webp`;
                 }}
               />
               <div className="w-70 h-10 md:h-10 bg-transparent flex overflow-visible flex-nowrap items-center justify-center">
@@ -312,11 +312,11 @@ export default function VSNavbar({ onApplyClick }: VSNavbarProps) {
           {/* Left side: Logo + Title */}
           <div className="flex items-center gap-2">
             <img
-              src={(getClashLogos() as ClashLogos).icon.LogoSm || '/assets/ClashLogo/Logo@1x.webp'}
+              src={(getClashLogos() as ClashLogos).icon.LogoSm || `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/ClashLogo/Logo@1x.webp`}
               alt="Clash Creation"
               className="h-[5svh]"
               onError={(e) => {
-                e.currentTarget.src = '/assets/ClashLogo/Logo@1x.webp';
+                e.currentTarget.src = `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/ClashLogo/Logo@1x.webp`;
               }}
             />
             <span className=" ml-1 max-h-max text-line vs-text-gradient-nav-title leading-4.5 text-[1.2rem]">the <br />vertical shortcut.</span>
