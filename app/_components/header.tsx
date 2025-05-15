@@ -84,7 +84,7 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
 
   return (
     <>
-      <header ref={ref} className="w-full py-4 px-4 fixed top-0 right-0 z-20 transition-colors bg-theme-primary shadow-md">
+      <header ref={ref} className="w-full py-4 px-4 fixed top-0 right-0 z-20 transition-colors bg-theme-primary shadow-md dark:bg-[var(--theme-bg-navy-gradient)]">
         <div className="container mx-auto flex items-center justify-between pr-4 gap-4">
           {/* Clash Blog stacked title */}
           <Link href="/" className="flex flex-col items-start justify-center select-none" style={{ minWidth: '80px' }}>
@@ -114,7 +114,7 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
                           <li key={post.slug} className="border-b border-theme-border last:border-0">
                             <Link
                               href={`/posts/${post.slug}`}
-                              className="flex items-center gap-3 px-4 py-2 hover:bg-theme-bg-secondary transition-colors"
+                              className="flex items-center gap-3 px-4 py-2 hover:bg-theme-bg-secondary transition-colors text-theme-primary font-medium"
                               onClick={() => setOpenDropdown(null)}
                             >
                               <Image
@@ -124,7 +124,7 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
                                 height={40}
                                 className="w-10 h-10 object-cover rounded"
                               />
-                              <span className="font-medium text-theme-primary">{post.title}</span>
+                              <span>{post.title}</span>
                             </Link>
                           </li>
                         ))}
@@ -151,7 +151,11 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
                 className="h-10 w-10 rounded-full mr-2"
                 priority
               />
-              <span className="text-[#FF6B49] font-bold text-xl hidden sm:inline">the vertical shortcut</span>
+              <span
+                className="ml-3 text-xl font-medium vs-text-gradient-nav-title"
+              >
+                the vertical shortcut.
+              </span>
             </div>
           </Link>
           {/* Hamburger menu for mobile */}
@@ -216,7 +220,7 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
                         <li key={post.slug} className="mb-2">
                           <Link
                             href={`/posts/${post.slug}`}
-                            className="flex items-center gap-3 px-2 py-2 rounded hover:bg-theme-bg-secondary transition-colors"
+                            className="flex items-center gap-3 px-2 py-2 rounded hover:bg-theme-bg-secondary transition-colors text-theme-primary font-medium text-base"
                             onClick={() => setDrawerOpen(false)}
                           >
                             <Image
@@ -226,7 +230,7 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
                               height={32}
                               className="w-8 h-8 object-cover rounded"
                             />
-                            <span className="font-medium text-theme-primary text-base">{post.title}</span>
+                            <span>{post.title}</span>
                           </Link>
                         </li>
                       ))}

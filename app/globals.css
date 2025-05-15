@@ -171,33 +171,23 @@ div[class*="prose"] h2 {
   }
 }
 
-/* Force blue header text in dark mode (debug: hardcoded) */
-[data-theme="dark"] .clash-header-text,
-.dark .clash-header-text {
-  color: #46b6b6 !important;
+/* Force blog post title links to be black in light mode and white in dark mode, overriding global a color */
+a.text-black, a.dark\:text-white, a.text-title-link {
+  color: #000 !important;
+}
+.dark a.text-black, .dark a.dark\:text-white, .dark a.text-title-link {
+  color: #fff !important;
 }
 
-/* Force homepage hero post title to use blue color in dark mode */
-[data-theme="dark"] .homepage-hero-title,
-.dark .homepage-hero-title {
-  color: #46b6b6 !important;
+a.text-theme-primary {
+  color: var(--theme-text-primary) !important;
 }
 
-/* Force homepage hero post title link to use secondary teal blue in dark mode, with maximum specificity and !important */
-[data-theme="dark"] .homepage-hero-title a,
-.dark .homepage-hero-title a {
-  color: #46b6b6 !important;
+a.text-title-link, .text-title-link, a.text-theme-primary, .text-theme-primary {
+  color: var(--theme-text-primary) !important;
 }
 
-/* Force .blog-title-link to secondary teal in dark mode, using the CSS variable */
-[data-theme="dark"] .blog-title-link,
-.dark .blog-title-link {
-  color: var(--secondary-teal) !important;
-}
-
-html[data-theme="dark"] .blog-title-link,
-body[data-theme="dark"] .blog-title-link,
-html.dark .blog-title-link,
-body.dark .blog-title-link {
-  color: #46b6b6 !important;
+/* FINAL OVERRIDE: Force blog post title links to use theme text primary, always */
+a.text-title-link, a.text-theme-primary, a.text-black, a.dark\:text-white {
+  color: var(--theme-text-primary) !important;
 }

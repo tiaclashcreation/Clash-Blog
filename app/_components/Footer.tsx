@@ -7,7 +7,7 @@ const TAGS = ["AI", "Founders", "Psychology", "Trends"];
 
 export default function Footer({ className = "" }: { className?: string }) {
   return (
-    <footer className={`w-full bg-theme-primary border-t border-theme-border py-8 mt-16 z-60 relative ${className}`}>
+    <footer className={`w-full bg-theme-primary border-t border-theme-border py-8 mt-16 z-60 relative dark:bg-[var(--theme-bg-navy-gradient)] ${className}`}>
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6 px-4">
         {/* Left: Vertical Shortcut + Tags */}
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-3 md:w-2/3 justify-start">
@@ -20,7 +20,11 @@ export default function Footer({ className = "" }: { className?: string }) {
               className="h-10 w-10 rounded-full mr-2"
               priority
             />
-            <span className="text-[#FF6B49] font-bold text-xl hidden sm:inline">the vertical shortcut</span>
+            <span
+              className="ml-3 text-xl font-medium vs-text-gradient-nav-title"
+            >
+              the vertical shortcut.
+            </span>
           </Link>
           <div className="flex flex-wrap md:flex-nowrap gap-3 ml-0 md:ml-4">
             {TAGS.map(tag => (
@@ -38,7 +42,7 @@ export default function Footer({ className = "" }: { className?: string }) {
         <div className="flex flex-col md:flex-row items-center gap-3 md:w-1/3 justify-end">
           <a
             href="mailto:creators@clashcreation.com"
-            className="text-theme-custom/60 hover:text-[--primary-orange)] transition-colors font-bold text-lg mr-2"
+            className="text-secondary-teal transition-colors font-bold text-lg mr-2"
             aria-label="Contact"
           >
             Contact
@@ -48,7 +52,7 @@ export default function Footer({ className = "" }: { className?: string }) {
               href="https://clashcreation.kit.com/ccf67e8d02"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-theme-custom/60 hover:text-[--primary-orange)] /60 dark:hover:text-[--primary-orange)] transition-colors touch-target"
+              className="text-secondary-teal transition-colors touch-target"
               aria-label="Subscribe to our newsletter"
             >
               <svg
@@ -69,7 +73,7 @@ export default function Footer({ className = "" }: { className?: string }) {
             </a>
             <a
               href="https://www.linkedin.com/in/joden-newman/"
-              className="text-theme-custom/60 hover:text-[--primary-orange)] /60 dark:hover:text-[--primary-orange)] transition-colors touch-target"
+              className="text-secondary-teal transition-colors touch-target"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -92,7 +96,7 @@ export default function Footer({ className = "" }: { className?: string }) {
             </a>
             <a
               href="https://www.tiktok.com/@jodenclash"
-              className="text-theme-custom/60 hover:text-[--primary-orange)] /60 dark:hover:text-[--primary-orange)] transition-colors touch-target"
+              className="text-secondary-teal transition-colors touch-target"
               target="_blank"
               rel="noopener noreferrer"
             >

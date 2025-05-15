@@ -77,7 +77,7 @@ export default async function RootLayout({
         <link rel="icon" type="image/x-icon" href="/clash-logo.ico" />
       </head>
       <body
-        className="min-h-screen flex flex-col bg-theme-primary font-sans antialiased"
+        className="min-h-screen flex flex-col bg-theme-primary font-sans antialiased dark:bg-[var(--theme-bg-navy-gradient)]"
       >
         <ThemeProvider
           attribute="class"

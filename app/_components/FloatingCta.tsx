@@ -69,7 +69,7 @@ export default function FloatingCta({ onStateChange }: { onStateChange?: () => v
       ) : (
         minimized && (
           <button
-            className="bg-[#FF6B49] text-white rounded-full shadow px-4 py-2 font-semibold text-xs flex items-center gap-2 hover:scale-105 transition-all"
+            className="bg-secondary-teal text-white rounded-full shadow px-4 py-2 font-semibold text-xs flex items-center gap-2 hover:scale-105 transition-all"
             onClick={() => { setVisible(true); setMinimized(false); onStateChange && onStateChange(); }}
             aria-label="Show CTA"
           >

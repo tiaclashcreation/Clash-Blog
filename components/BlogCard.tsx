@@ -26,7 +26,7 @@ export default function BlogCard({ post }: { post: any }) {
         />
       )}
       <div className="p-6 flex flex-col flex-1">
-        <VSHeading size="lg" className="mb-2">{post.title}</VSHeading>
+        <VSHeading size="lg" className="mb-2 text-title-link">{post.title}</VSHeading>
         <VSText size="md" className="mb-2 text-gray-500">
           By {post.author} • {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString() : ''}
         </VSText>

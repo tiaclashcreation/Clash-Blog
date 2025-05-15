@@ -66,11 +66,11 @@ p {
   color: var(--theme-text-primary);
 }
 
-a {
+/* a {
   color: var(--theme-primary);
   text-decoration: none;
   transition: color var(--theme-transition-fast);
-}
+} */
 
 .logo-gradient-fade-to-tr {
   display: block;

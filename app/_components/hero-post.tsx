@@ -35,7 +35,7 @@ export function HeroPost({
           <h3 className="homepage-hero-title mb-2 text-4xl lg:text-5xl leading-tight">
             <a
               href={`/posts/${slug}`}
-              className="blog-title-link hover:underline"
+              className="text-title-link hover:underline"
             >
               {title}
             </a>
