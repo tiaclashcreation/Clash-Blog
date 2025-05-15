@@ -37,43 +37,33 @@ export default function FloatingCta({ onStateChange }: { onStateChange?: () => v
   return (
     <div className="w-full flex flex-col items-end">
       {visible ? (
-        <div className="backdrop-blur-lg border border-theme-border shadow-2xl rounded-2xl p-3 w-56 max-w-xs flex flex-col gap-2 relative pt-7">
+        <div className="backdrop-blur-lg border border-theme-border shadow-2xl rounded-2xl p-4 w-64 max-w-sm flex flex-col gap-3 relative pt-9">
           <button
-            className="absolute top-2 right-2 text-theme-primary/50 hover:text-theme-primary/80 text-lg font-bold p-1 rounded transition-colors"
+            className="absolute top-2 right-2 text-theme-primary/50 hover:text-theme-primary/80 text-xl font-bold p-2 rounded transition-colors"
             aria-label="Minimize CTA"
             onClick={() => { setVisible(false); setMinimized(true); onStateChange && onStateChange(); }}
           >
             −
           </button>
-          <h4 className="text-xs font-bold text-theme-primary mb-1">The Vertical Shortcut</h4>
-          <span className="text-[12px] text-theme-primary/40 dark:text-theme-primary/40 mb-1">We're not just writers. We've built over 1B+ views for founders and execs on short form. Turn your personal brand into a personal machine.</span>
+          <h4 className="text-sm font-bold text-theme-primary mb-2">The Vertical Shortcut</h4>
+          <span className="text-[14px] text-theme-primary/40 dark:text-theme-primary/40 mb-2">We're not just writers. We've built over 1B+ views for founders and execs on short form. Turn your personal brand into a personal machine.</span>
           <Link
             href="https://www.verticalshortcut.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-2.5 py-1 bg-[#FF6B49] text-white !text-white rounded-full shadow hover:scale-105 hover:bg-[#ff8a65] transition-all font-semibold text-sm justify-center"
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-[#FF6B49] text-white !text-white rounded-full shadow hover:scale-105 hover:bg-[#ff8a65] transition-all font-semibold text-base min-w-[180px] text-center"
           >
-            🚀 Try The Vertical Shortcut
+            <span className="w-full text-center">🚀 Apply Now</span>
           </Link>
-          <a
-            href="https://clashcreation.kit.com/ccf67e8d02"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-2.5 py-1 bg-secondary-teal text-white !text-white rounded-full shadow hover:scale-105 hover:bg-secondary-teal-light transition-all font-semibold text-sm justify-center"
-            aria-label="Sign up for the newsletter"
-          >
-            📬 Sign up for the newsletter
-          </a>
-          <span className="text-[10px] text-theme-primary/60 dark:text-theme-primary/50 mt-1 text-center">No spam. Unsubscribe anytime.</span>
         </div>
       ) : (
         minimized && (
           <button
-            className="bg-secondary-teal text-white rounded-full shadow px-4 py-2 font-semibold text-xs flex items-center gap-2 hover:scale-105 transition-all"
+            className="bg-secondary-teal text-white rounded-full shadow px-6 py-3 font-semibold text-base flex items-center justify-center gap-2 hover:scale-105 transition-all min-w-[140px] text-center"
             onClick={() => { setVisible(true); setMinimized(false); onStateChange && onStateChange(); }}
             aria-label="Show CTA"
           >
-            <span>Learn More</span>
+            <span className="w-full text-center">Only 9 Spots Left</span>
           </button>
         )
       )}
