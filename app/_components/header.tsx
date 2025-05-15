@@ -144,7 +144,7 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
           >
             <div className="flex items-center">
               <Image 
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/clash-logo.png`} 
+                src="/clash-logo.png" 
                 alt="vertical shortcut icon" 
                 width={40} 
                 height={40}
@@ -189,7 +189,7 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
               onClick={() => setDrawerOpen(false)}
             >
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/clash-logo.png`}
+                src="/clash-logo.png"
                 alt="vertical shortcut icon"
                 width={48}
                 height={48}
