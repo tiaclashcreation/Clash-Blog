@@ -22,6 +22,8 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
   const ref = useRef<HTMLElement>(null);
+  const themeToggleRef = useRef<HTMLButtonElement>(null);
+  const [isAbsolute, setIsAbsolute] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
@@ -32,6 +34,42 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
     if (openDropdown) document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, [openDropdown]);
+
+  useEffect(() => {
+    function handleScroll() {
+      const footer = document.querySelector('footer');
+      const toggle = themeToggleRef.current;
+      if (!footer || !toggle) return;
+      const footerRect = footer.getBoundingClientRect();
+      const toggleRect = toggle.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const ctaOffset = 80; // px, matches CTA's offset
+      const toggleOffset = 16; // px, below CTA
+      // Calculate the distance from the top of the document to the bottom of the viewport
+      const scrollBottom = window.scrollY + windowHeight;
+      // Calculate the distance from the top of the document to the top of the footer
+      const footerTop = window.scrollY + footerRect.top;
+      // If the button would overlap the footer, switch to absolute and position just above the footer
+      if (scrollBottom > footerTop - toggleOffset) {
+        setIsAbsolute(true);
+        if (toggle) {
+          toggle.style.top = `${footerTop - toggle.offsetHeight - toggleOffset}px`;
+        }
+      } else {
+        setIsAbsolute(false);
+        if (toggle) {
+          toggle.style.top = '';
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    handleScroll();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
 
   const categories = ["AI", "Trends", "Founders", "Psychology"];
 
@@ -50,8 +88,8 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
         <div className="container mx-auto flex items-center justify-between pr-4 gap-4">
           {/* Clash Blog stacked title */}
           <Link href="/" className="flex flex-col items-start justify-center select-none" style={{ minWidth: '80px' }}>
-            <span className="text-navy text-2xl md:text-3xl font-bold leading-none tracking-tighter">Clash</span>
-            <span className="text-navy text-2xl md:text-3xl font-bold leading-none tracking-tighter">Blog.</span>
+            <span className="clash-header-text text-navy text-2xl md:text-3xl font-bold leading-none tracking-tighter">Clash</span>
+            <span className="clash-header-text text-navy text-2xl md:text-3xl font-bold leading-none tracking-tighter">Blog.</span>
           </Link>
           {/* Desktop Navbar links with dropdowns */}
           <nav className="flex-1 flex justify-center hidden md:flex">
@@ -199,24 +237,6 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
             </nav>
           </div>
         </div>
-      )}
-      {/* Custom floating theme toggle button in bottom right */}
-      {mounted && (
-        <button
-          id="theme-toggle"
-          data-theme-toggle=""
-          className="fixed bottom-4 right-4 z-50 p-2 rounded-full bg-theme-primary border border-theme-border shadow-theme-sm hover-bubbly-sm"
-          aria-label="Toggle theme"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        >
-          {theme === "dark" ? (
-            // Sun SVG for dark mode
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-sun h-5 w-5 text-theme-primary" data-theme-dark="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
-          ) : (
-            // Moon SVG for light mode
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-moon h-5 w-5 text-theme-primary" data-theme-light="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
-          )}
-        </button>
       )}
     </>
   );

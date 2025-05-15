@@ -5,10 +5,24 @@ import { PostBody } from '../../_components/post-body';
 import Container from '../../_components/container';
 import { notFound } from 'next/navigation';
 import { PortableText } from '@portabletext/react';
+import React from 'react';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 }
+
+const components = {
+  block: {
+    h2: ({ children }: { children?: React.ReactNode }) => (
+      <h2 style={{
+        fontSize: '1.6rem',
+        fontWeight: 600,
+        letterSpacing: '-0.01em',
+        margin: '2rem 0 1rem 0',
+      }}>{children}</h2>
+    ),
+  },
+};
 
 export default async function PostPage({ params }: PageProps) {
   const resolvedParams = await params;
@@ -41,7 +55,7 @@ export default async function PostPage({ params }: PageProps) {
           />
           {/* If you have markdown, convert to HTML and use PostBody. Otherwise, use PortableText. */}
           <div className="prose prose-invert max-w-[700px] mx-auto !px-0">
-            <PortableText value={mappedPost.content} />
+            <PortableText value={mappedPost.content} components={components} />
           </div>
         </article>
       </Container>

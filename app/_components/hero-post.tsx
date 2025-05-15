@@ -1,3 +1,5 @@
+"use client";
+
 import Avatar from "./avatar";
 import CoverImage from "./cover-image";
 import DateFormatter from "./date-formatter";
@@ -30,8 +32,11 @@ export function HeroPost({
           </div>
         </div>
         <div className="flex-1 w-full">
-          <h3 className="mb-2 text-4xl lg:text-5xl leading-tight">
-            <a href={`/posts/${slug}`} className="hover:underline">
+          <h3 className="homepage-hero-title mb-2 text-4xl lg:text-5xl leading-tight">
+            <a
+              href={`/posts/${slug}`}
+              className="blog-title-link hover:underline"
+            >
               {title}
             </a>
           </h3>

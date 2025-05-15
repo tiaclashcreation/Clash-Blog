@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import "../styles/index.css";
 import { ThemeProvider } from "next-themes";
 import Header from "./_components/header";
+import Footer from "./_components/Footer";
 import { getPosts } from "../sanity/lib/getPosts";
+import FloatingCta from "./_components/FloatingCta";
+import FloatingGroup from "./_components/FloatingGroup";
 
 /*  
 const inter = Inter({
@@ -74,7 +77,7 @@ export default async function RootLayout({
         <link rel="icon" type="image/x-icon" href="/clash-logo.ico" />
       </head>
       <body
-        className="min-h-screen bg-theme-primary font-sans antialiased"
+        className="min-h-screen flex flex-col bg-theme-primary font-sans antialiased"
       >
         <ThemeProvider
           attribute="class"
@@ -84,7 +87,9 @@ export default async function RootLayout({
         >
           <Header postsByCategory={postsByCategory} />
           {children}
+          <FloatingGroup />
         </ThemeProvider>
+        <Footer className="mt-auto" />
       </body>
     </html>
   );
