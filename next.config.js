@@ -7,6 +7,7 @@ const nextConfig = {
         hostname: 'cdn.sanity.io',
       },
     ],
+    domains: [], // This allows local images from /public
   },
   // Keep these for easier development and deployment
   typescript: {
