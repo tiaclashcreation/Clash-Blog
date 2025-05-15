@@ -17,7 +17,6 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   basePath: '/blog',
-  assetPrefix: '/blog',
 }
 
 module.exports = nextConfig 
