@@ -12,13 +12,12 @@ export default function Footer({ className = "" }: { className?: string }) {
         {/* Left: Vertical Shortcut + Tags */}
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-3 md:w-2/3 justify-start">
           <Link href="https://www.verticalshortcut.com/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-105 flex items-center">
-            <Image 
-              src="/clash-logo.png" 
+            <img 
+              src="/blog/clash-logo.png" 
               alt="vertical shortcut icon" 
               width={40} 
               height={40}
               className="h-10 w-10 rounded-full mr-2"
-              priority
             />
             <span
               className="ml-3 text-xl font-medium vs-text-gradient-nav-title"

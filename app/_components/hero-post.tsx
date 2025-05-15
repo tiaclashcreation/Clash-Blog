@@ -3,6 +3,7 @@
 import Avatar from "./avatar";
 import CoverImage from "./cover-image";
 import DateFormatter from "./date-formatter";
+import Link from "next/link";
 
 type Props = {
   title: string;
@@ -33,12 +34,12 @@ export function HeroPost({
         </div>
         <div className="flex-1 w-full">
           <h3 className="homepage-hero-title mb-2 text-4xl lg:text-5xl leading-tight">
-            <a
+            <Link
               href={`/posts/${slug}`}
               className="text-title-link hover:underline"
             >
               {title}
-            </a>
+            </Link>
           </h3>
           <p className="text-lg leading-relaxed mb-2">{excerpt}</p>
         </div>

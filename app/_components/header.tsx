@@ -143,13 +143,12 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
             className="transition-transform hover:scale-105 hidden md:flex"
           >
             <div className="flex items-center">
-              <Image 
-                src="/clash-logo.png" 
+              <img 
+                src="/blog/clash-logo.png" 
                 alt="vertical shortcut icon" 
                 width={40} 
                 height={40}
                 className="h-10 w-10 rounded-full mr-2"
-                priority
               />
               <span
                 className="ml-3 text-xl font-medium vs-text-gradient-nav-title"
@@ -188,13 +187,12 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
               className="flex items-center justify-center mt-8 mb-6"
               onClick={() => setDrawerOpen(false)}
             >
-              <Image
-                src="/clash-logo.png"
+              <img
+                src="/blog/clash-logo.png"
                 alt="vertical shortcut icon"
                 width={48}
                 height={48}
                 className="h-12 w-12 rounded-full"
-                priority
               />
             </Link>
             {/* Category accordions */}
