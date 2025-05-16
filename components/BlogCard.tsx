@@ -14,6 +14,13 @@ function getExcerpt(body: any[], maxLength = 180) {
   return text.length > maxLength ? text.slice(0, maxLength) + '…' : text;
 }
 
+function toIso8601(dateString: string) {
+  if (!dateString) return '';
+  if (dateString.includes('T')) return dateString;
+  // Convert 'YYYY-MM-DD HH:mm' to 'YYYY-MM-DDTHH:mm:00'
+  return dateString.replace(' ', 'T') + (dateString.length === 16 ? ':00' : '');
+}
+
 export default function BlogCard({ post }: { post: any }) {
   return (
     <div className="rounded-lg bg-[var(--background)] shadow-lg flex flex-col transition-transform hover:-translate-y-1 hover:shadow-2xl">
@@ -28,7 +35,9 @@ export default function BlogCard({ post }: { post: any }) {
       <div className="p-6 flex flex-col flex-1">
         <VSHeading size="lg" className="mb-2 text-title-link">{post.title}</VSHeading>
         <VSText size="md" className="mb-2 text-gray-500">
-          By {post.author} • {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString() : ''}
+          By {post.author} • {post.publishedAt && !isNaN(new Date(toIso8601(post.publishedAt)).getTime())
+            ? new Date(toIso8601(post.publishedAt)).toISOString().slice(0, 10)
+            : ''}
         </VSText>
         <VSText size="sm" className="mb-4 text-gray-300">
           {getExcerpt(post.body, 180)}

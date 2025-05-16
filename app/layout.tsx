@@ -6,6 +6,8 @@ import Footer from "./_components/Footer";
 import { getPosts } from "../sanity/lib/getPosts";
 import FloatingCta from "./_components/FloatingCta";
 import FloatingGroup from "./_components/FloatingGroup";
+import { useEffect, useState } from "react";
+import ThemeClientProvider from "./_components/ThemeClientProvider";
 
 /*  
 const inter = Inter({
@@ -94,16 +96,9 @@ export default async function RootLayout({
       <body
         className="min-h-screen flex flex-col bg-theme-primary font-sans antialiased dark:bg-[var(--theme-bg-navy-gradient)]"
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header postsByCategory={postsByCategory} />
+        <ThemeClientProvider postsByCategory={postsByCategory}>
           {children}
-          <FloatingGroup />
-        </ThemeProvider>
+        </ThemeClientProvider>
         <Footer className="mt-auto" />
       </body>
     </html>
