@@ -16,7 +16,6 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  basePath: '/blog',
 }
 
 module.exports = nextConfig 
