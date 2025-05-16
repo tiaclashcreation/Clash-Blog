@@ -118,7 +118,7 @@ export default function Footer({ className = "" }: { className?: string }) {
         </div>
       </div>
       <div className="text-center text-xs text-theme-primary mt-6 opacity-70">
-        &copy; {new Date().getFullYear()} Clash Blog. All rights reserved.
+        @ {new Date().getFullYear()} Clash Creation Ltd. All rights reserved.
       </div>
     </footer>
   );
