@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "Clash Blog | Short-Form Content Strategy for Founders",
   description: "Expert insights on creating short-form video content that converts. Psychology-driven approaches, trends, and AI strategies for founders looking to drive real business results.",
   metadataBase: new URL('https://clashcreation.com/blog/'),
+  alternates: {
+    canonical: 'https://clashcreation.com/blog',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_UK',
