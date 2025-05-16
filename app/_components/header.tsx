@@ -144,7 +144,7 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
           >
             <div className="flex items-center">
               <img 
-                src="/blog/clash-logo.png" 
+                src="/clash-logo.png" 
                 alt="vertical shortcut icon" 
                 width={40} 
                 height={40}
@@ -188,7 +188,7 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
               onClick={() => setDrawerOpen(false)}
             >
               <img
-                src="/blog/clash-logo.png"
+                src="/clash-logo.png"
                 alt="vertical shortcut icon"
                 width={48}
                 height={48}

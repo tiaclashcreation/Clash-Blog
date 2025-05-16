@@ -94,10 +94,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const post = await getPostBySlug(params.slug);
 
   if (!post) return {};
-  const imageUrl = post.mainImage?.asset?.url?.replace('clash-blog.vercel.app', 'clashcreation.com/blog') || "https://clashcreation.com/blog/clash-blog-og.png";
+  const imageUrl = post.mainImage?.asset?.url?.replace('clash-blog.vercel.app', 'blog.clashcreation.com') || "https://blog.clashcreation.com/clash-blog-og.png";
   const imageAlt = post.mainImage?.alt || post.title;
   const description = post.excerpt || "Read this post on Clash Blog.";
-  const canonicalUrl = `https://clashcreation.com/blog/posts/${post.slug?.current || post.slug}`;
+  const canonicalUrl = `https://blog.clashcreation.com/posts/${post.slug?.current || post.slug}`;
   return {
     title: post.title,
     description,

@@ -13,7 +13,7 @@ export default function Footer({ className = "" }: { className?: string }) {
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-3 md:w-2/3 justify-start">
           <Link href="https://www.verticalshortcut.com/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-105 flex items-center">
             <img 
-              src="/blog/clash-logo.png" 
+              src="/clash-logo.png" 
               alt="vertical shortcut icon" 
               width={40} 
               height={40}

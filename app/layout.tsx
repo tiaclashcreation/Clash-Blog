@@ -19,20 +19,20 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Clash Blog | Short-Form Content Strategy for Founders",
   description: "Expert insights on creating short-form video content that converts. Psychology-driven approaches, trends, and AI strategies for founders looking to drive real business results.",
-  metadataBase: new URL('https://clashcreation.com/blog/'),
+  metadataBase: new URL('https://blog.clashcreation.com/'),
   alternates: {
-    canonical: 'https://clashcreation.com/blog',
+    canonical: 'https://blog.clashcreation.com',
   },
   openGraph: {
     type: 'website',
     locale: 'en_UK',
-    url: 'https://clashcreation.com/blog/',
+    url: 'https://blog.clashcreation.com/',
     siteName: 'Clash Blog',
     title: 'Clash Blog | Short-Form Content Strategy for Founders',
     description: 'Expert insights on creating short-form video content that converts. Psychology-driven approaches, trends, and AI strategies for founders looking to drive real business results.',
     images: [
       {
-        url: 'https://clashcreation.com/blog/clash-blog-og.png',
+        url: 'https://blog.clashcreation.com/clash-blog-og.png',
         width: 1200,
         height: 630,
         alt: 'Clash Blog - Short-Form Content for Founders',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Clash Blog | Short-Form Content Strategy for Founders',
     description: 'Expert insights on creating short-form video content that converts. Psychology-driven approaches, trends, and AI strategies for founders looking to drive real business results.',
-    images: ['https://clashcreation.com/blog/clash-blog-og.png'],
+    images: ['https://blog.clashcreation.com/clash-blog-og.png'],
   },
   keywords: 'short-form content, founder marketing, TikTok strategy, content creation, business growth, neuro-writing, AI content strategy, LinkedIn content, Psychology, AI Creative, Script Writing, Short Form, Personal Branding',
   robots: {
@@ -87,7 +87,7 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "Blog",
               "name": "Clash Creation Blog",
-              "url": "https://clashcreation.com/blog/",
+              "url": "https://blog.clashcreation.com/",
               "description": "Expert insights on creating short-form video content that converts. Psychology-driven approaches, trends, and AI strategies for founders looking to drive real business results."
             })
           }}
