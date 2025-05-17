@@ -1,3 +1,9 @@
+# *
 User-agent: *
 Allow: /
-Sitemap: https://blog.clashcreation.com/sitemap.xml 
+
+# Host
+Host: https://blog.clashcreation.com
+
+# Sitemaps
+Sitemap: https://blog.clashcreation.com/sitemap.xml

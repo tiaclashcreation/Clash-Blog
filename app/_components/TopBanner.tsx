@@ -36,31 +36,31 @@ export default function CountdownDate() {
       className="fixed top-0 left-0 w-full z-50 shadow-lg flex flex-col items-center py-1 px-2 pr-8"
       style={{
         background: `linear-gradient(90deg, var(--theme-gradient-start, #fff) 0%, var(--accent-coral, #FF6B49) 30%, var(--accent-coral, #FF6B49) 80%, var(--theme-gradient-end, #fff) 100%)`,
-        color: 'var(--theme-text-primary)',
+        color: '#fff',
         opacity: 1,
       }}
     >
       <div className="flex items-center w-full gap-4">
         <div className="flex-1 flex items-center justify-center gap-2">
-          <span className="font-bold text-base tracking-tight mr-1" style={{ color: 'var(--theme-bg-primary)' }}>
+          <span className="font-bold text-base tracking-tight mr-1">
             Cohort Starts in:
           </span>
           {timeLeft.total > 0 ? (
-            <div className="flex gap-1 text-sm font-mono" style={{ color: 'var(--theme-bg-primary)' }}>
+            <div className="flex gap-1 text-base md:text-lg">
               <span><span className="font-bold">{timeLeft.days}</span> days</span>
               <span><span className="font-bold">{timeLeft.hours}</span> hours</span>
               <span><span className="font-bold">{timeLeft.minutes}</span> min</span>
               <span><span className="font-bold">{timeLeft.seconds}</span> sec</span>
             </div>
           ) : (
-            <div className="text-sm font-semibold ml-1" style={{ color: 'var(--secondary-teal)' }}>Course has started!</div>
+            <div className="text-sm font-semibold ml-1">Course has started!</div>
           )}
         </div>
         <div className="flex items-center gap-2 min-w-[120px]">
           <span
             className="text-sm font-semibold px-3 py-1 rounded transition-colors"
             style={{
-              color: 'var(--theme-bg-primary)',
+              color: '#fff',
               background: 'transparent',
               opacity: 1,
             }}
@@ -80,7 +80,7 @@ export default function CountdownDate() {
             className="ml-2 px-3 py-1 font-bold rounded shadow transition-colors text-sm"
             style={{
               background: 'var(--accent-coral, #FF6B49)',
-              color: 'var(--theme-bg-primary)',
+              color: '#fff',
               opacity: 0.9,
             }}
           >
