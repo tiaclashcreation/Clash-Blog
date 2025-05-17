@@ -84,7 +84,7 @@ export default function Header({ postsByCategory }: { postsByCategory: PostsByCa
 
   return (
     <>
-      <header ref={ref} className="w-full py-4 px-4 fixed top-0 right-0 z-20 transition-colors bg-theme-primary shadow-md dark:bg-[var(--theme-bg-navy-gradient)]">
+      <header ref={ref} className="w-full py-4 px-4 fixed top-8 right-0 z-20 transition-colors bg-theme-primary shadow-md dark:bg-[var(--theme-bg-navy-gradient)]">
         <div className="container mx-auto flex items-center justify-between pr-4 gap-4">
           {/* Clash Blog stacked title */}
           <Link href="/" className="flex flex-col items-start justify-center select-none" style={{ minWidth: '80px' }}>

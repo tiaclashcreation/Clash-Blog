@@ -8,6 +8,7 @@ import FloatingCta from "./_components/FloatingCta";
 import FloatingGroup from "./_components/FloatingGroup";
 import { useEffect, useState } from "react";
 import ThemeClientProvider from "./_components/ThemeClientProvider";
+import TopBanner from "./_components/TopBanner";
 
 /*  
 const inter = Inter({
@@ -96,6 +97,7 @@ export default async function RootLayout({
       <body
         className="min-h-screen flex flex-col bg-theme-primary font-sans antialiased dark:bg-[var(--theme-bg-navy-gradient)]"
       >
+        <TopBanner />
         <ThemeClientProvider postsByCategory={postsByCategory}>
           {children}
         </ThemeClientProvider>
