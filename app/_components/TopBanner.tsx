@@ -35,7 +35,7 @@ export default function CountdownDate() {
     <div
       className="fixed top-0 left-0 w-full z-50 shadow-lg flex flex-col items-center py-1 px-2 pr-8"
       style={{
-        background: `linear-gradient(90deg, var(--theme-gradient-start) 0%, var(--secondary-teal) 30%, var(--secondary-teal) 80%, var(--theme-gradient-end) 100%)`,
+        background: `linear-gradient(90deg, var(--theme-gradient-start, #fff) 0%, var(--accent-coral, #FF6B49) 30%, var(--accent-coral, #FF6B49) 80%, var(--theme-gradient-end, #fff) 100%)`,
         color: 'var(--theme-text-primary)',
         opacity: 1,
       }}
@@ -67,10 +67,10 @@ export default function CountdownDate() {
           >
             Only {spotsLeft} spots left
           </span>
-          <div className="relative w-16 h-1 rounded overflow-hidden" style={{ background: 'rgba(70,182,182,0.2)' }}>
+          <div className="relative w-16 h-1 rounded overflow-hidden" style={{ background: 'rgba(255,107,73,0.2)' }}>
             <div
               className="absolute left-0 top-0 h-1 rounded"
-              style={{ width: `${percentFilled}%`, background: 'var(--secondary-teal)' }}
+              style={{ width: `${percentFilled}%`, background: 'var(--accent-coral, #FF6B49)' }}
             />
           </div>
           <a
@@ -79,7 +79,7 @@ export default function CountdownDate() {
             rel="noopener noreferrer"
             className="ml-2 px-3 py-1 font-bold rounded shadow transition-colors text-sm"
             style={{
-              background: 'var(--secondary-teal)',
+              background: 'var(--accent-coral, #FF6B49)',
               color: 'var(--theme-bg-primary)',
               opacity: 0.9,
             }}
