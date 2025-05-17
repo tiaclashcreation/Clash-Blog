@@ -40,7 +40,7 @@ export default function Footer({ className = "" }: { className?: string }) {
         {/* Right: Newsletter, LinkedIn, TikTok */}
         <div className="flex flex-col md:flex-row items-center gap-3 md:w-1/3 justify-end">
           <a
-            href="mailto:creators@clashcreation.com"
+            href="mailto:content@clashcreation.com"
             className="text-secondary-teal transition-colors font-bold text-lg mr-2"
             aria-label="Contact"
           >
