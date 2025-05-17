@@ -56,7 +56,7 @@ export default function CountdownDate() {
             <div className="text-sm font-semibold ml-1">Course has started!</div>
           )}
         </div>
-        <div className="flex items-center gap-2 min-w-[120px]">
+        <div className="hidden md:flex items-center gap-2 min-w-[120px]">
           <span
             className="text-sm font-semibold px-3 py-1 rounded transition-colors"
             style={{
