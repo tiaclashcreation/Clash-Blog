@@ -73,7 +73,7 @@ export default function FloatingCta({ onStateChange }: { onStateChange?: () => v
             {/* Blurred white overlay for shine */}
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-all duration-700 ease-out z-10" />
             {/* Content */}
-            <span className="w-full text-center relative z-20 drop-shadow-[1px_1px_2px_rgba(0,0,0,0.2)]">Only 9 Spots Left</span>
+            <span className="w-full text-center relative z-20 drop-shadow-[1px_1px_2px_rgba(0,0,0,0.2)]">Only 7 Spots Left</span>
           </button>
         )
       )}

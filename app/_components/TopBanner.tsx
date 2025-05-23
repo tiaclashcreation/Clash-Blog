@@ -19,7 +19,7 @@ export default function CountdownDate() {
 
   // Add these constants at the top of the component, after COURSE_START
   const totalSpots = 12;
-  const spotsLeft = 9;
+  const spotsLeft = 7;
   const spotsFilled = totalSpots - spotsLeft;
   const percentFilled = (spotsFilled / totalSpots) * 100;
 
