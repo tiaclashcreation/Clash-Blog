@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-const COURSE_START = new Date("2025-06-01T23:00:00Z");
+const COURSE_START = new Date("2025-06-29T23:00:00Z");
 
 function getTimeRemaining(target: Date) {
   const now = new Date();
